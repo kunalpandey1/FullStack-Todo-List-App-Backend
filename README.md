@@ -12,4 +12,16 @@ Make sure you have the following installed:
 
 ### Clone the repository
 
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/kunalpandey1/FullStack-Todo-List-App-Backend
+
+# Install dependencies
+cd Backend
+npm install
+
+# Set up environment variables
+
+PORT=5000
+MONGODB_URI=your_mongodb_uri
+
+# Start the server
+npm start
