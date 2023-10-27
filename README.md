@@ -21,7 +21,7 @@ npm install
 # Set up environment variables
 
 PORT=5000
-MONGODB_URI=your_mongodb_uri
+MONGO_DB=mongodb+srv://kunal:kunal123@atlascluster.hmkbsxw.mongodb.net/ToDo-App
 
 # Start the server
 npm start
