@@ -1,30 +1,48 @@
 const ToDoModel = require("../Model/ToDoModel");
-// All The Logic OF CRUD operation is here in controller File
 
 const getToDo = async (req, res) => {
-  const todo = await ToDoModel.find();
-  res.send(todo);
+  try {
+    const todo = await ToDoModel.find();
+    res.send(todo);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Internal Server Error");
+  }
 };
 
 const saveTodo = async (req, res) => {
-  const { text } = req.body;
-  ToDoModel.create({ text }).then((data) => {
+  try {
+    const { text } = req.body;
+    const data = await ToDoModel.create({ text });
     console.log("Added Successfully...");
     console.log(data);
     res.send(data);
-  });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Internal Server Error");
+  }
 };
+
 const updateTodo = async (req, res) => {
-  const { _id, text } = req.body;
-  ToDoModel.findByIdAndUpdate(_id, { text })
-    .then(() => res.send("Updated Successfully..."))
-    .catch((err) => console.log(err));
+  try {
+    const { _id, text } = req.body;
+    await ToDoModel.findByIdAndUpdate(_id, { text });
+    res.send("Updated Successfully...");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Internal Server Error");
+  }
 };
+
 const deleteTodo = async (req, res) => {
-  const { _id } = req.body;
-  ToDoModel.findByIdAndDelete(_id)
-    .then(() => res.send("Deleted Successfully..."))
-    .catch((err) => console.log(err));
+  try {
+    const { _id } = req.body;
+    await ToDoModel.findByIdAndDelete(_id);
+    res.send("Deleted Successfully...");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Internal Server Error");
+  }
 };
 
 module.exports = {
