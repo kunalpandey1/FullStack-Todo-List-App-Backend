@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors());
 
 //endpoint
-app.use(routes);
+app.use("/todos", routes);
 
 // creating a server
 app.listen(PORT, () => {

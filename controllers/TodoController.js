@@ -45,9 +45,20 @@ const deleteTodo = async (req, res) => {
   }
 };
 
+const deleteAll = async (req, res) => {
+  try {
+    await ToDoModel.deleteMany({});
+    res.send("All records deleted successfully");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
 module.exports = {
   getToDo,
   saveTodo,
   updateTodo,
   deleteTodo,
+  deleteAll,
 };
