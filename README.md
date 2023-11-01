@@ -1,5 +1,5 @@
 # Deployed Link
-https://fullstack-todo-list-app-backend.onrender.com/
+https://fullstack-todo-list-app-backend.onrender.com
 
 # Installation
 
